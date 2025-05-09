@@ -32,7 +32,7 @@ namespace TicTacToeSubmissionConole
             var row = Console.ReadLine();
 
             Console.SetCursorPosition(2, 22);
-
+            // do a loop
 
             Console.Write("Please Enter Column: ");
             var column = Console.ReadLine();
