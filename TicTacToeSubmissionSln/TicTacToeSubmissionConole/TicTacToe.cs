@@ -19,19 +19,27 @@ namespace TicTacToeSubmissionConole
         }
         public void Run()
         {
-            while (nrMoves != 1 || CheckWin(PlayerEnum.O) || CheckWin(PlayerEnum.X))
+            while (nrMoves != 1)
             {
                 Play(PlayerEnum.X);
                 Play(PlayerEnum.O);
-                CheckWin(PlayerEnum.X);
-                CheckWin(PlayerEnum.O);
-                nrMoves--;
+              
+                if (CheckWin(PlayerEnum.X))
+                {
+                    break;
+                }
+                if (CheckWin(PlayerEnum.O))
+                {
+                    break ;
+                }
+                nrMoves -= 2 ;
             }
-            if (nrMoves == 0) {
+            if (nrMoves == 1) {
                 Console.WriteLine("The game ends in a draw!!");
             }
             if (CheckWin(PlayerEnum.O))
             {
+                Console.SetCursorPosition(2, 0);
                 Console.WriteLine("Congratulations!!! Player O wins :)");
             }
             if (CheckWin(PlayerEnum.X))
