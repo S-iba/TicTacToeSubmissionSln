@@ -27,13 +27,13 @@ namespace TicTacToeSubmissionConole
             if (nrMoves == 0) {
                 Console.WriteLine("The game ends in a draw!!");
             }
-            if (CheckWin(PlayerEnum.O)
-                {
+            if (CheckWin(PlayerEnum.O))
+            {
                 Console.WriteLine("Congratulations!!! Player O wins :)");
             }
-            if ()
+            if (CheckWin(PlayerEnum.X))
             {
-
+                Console.WriteLine("Congratulations!!! Player X wins :)");
             }
         }
         private void Play(PlayerEnum player)
