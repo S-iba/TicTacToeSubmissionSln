@@ -34,16 +34,22 @@ namespace TicTacToeSubmissionConole
                 }
                 nrMoves -= 2 ;
             }
-            if (nrMoves == 1) {
+            if (nrMoves == 1)
+            {
+                Console.SetCursorPosition(2, 25);
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("The game ends in a draw!!");
             }
             if (CheckWin(PlayerEnum.O))
             {
-                Console.SetCursorPosition(2, 0);
+                Console.SetCursorPosition(2, 25);
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Congratulations!!! Player O wins :)");
             }
             if (CheckWin(PlayerEnum.X))
             {
+                Console.SetCursorPosition(2, 25);
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Congratulations!!! Player X wins :)");
             }
         }
@@ -73,10 +79,12 @@ namespace TicTacToeSubmissionConole
                 while (CheckSpace(int.Parse(row),int.Parse(column)))
                 {
                     //Add row:
+                    Console.SetCursorPosition(2, 23);
                     Console.Write("Please Enter an empty Row: ");
                     row = Console.ReadLine();
 
                     //Add column:
+                    Console.SetCursorPosition(2, 24);
                     Console.Write("Please Enter an empty Column: ");
                     column = Console.ReadLine();
                 }
