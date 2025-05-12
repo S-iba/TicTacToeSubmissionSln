@@ -17,17 +17,27 @@ namespace TicTacToeSubmissionConole
             _boardRenderer = new TicTacToeConsoleRenderer(10,6);
             _boardRenderer.Render();
         }
-
-
         public void Run()
         {
-            Play(PlayerEnum.X);
-            Play(PlayerEnum.O);
+            while (nrMoves != 0 || )
+            {
+                Play(PlayerEnum.X);
+                Play(PlayerEnum.O);
+            }
+            if (nrMoves == 0) {
+                Console.WriteLine("The game ends in a draw!!");
+            }
+            if (CheckWin(PlayerEnum.O)
+                {
+                Console.WriteLine("Congratulations!!! Player O wins :)");
+            }
+            if ()
+            {
+
+            }
         }
         private void Play(PlayerEnum player)
         {
-            // FOR ILLUSTRATION CHANGE TO YOUR OWN LOGIC TO DO TIC TAC TOE
-
             Console.SetCursorPosition(2, 19);
 
             Console.Write("Player X");
@@ -38,7 +48,6 @@ namespace TicTacToeSubmissionConole
             var row = Console.ReadLine();
 
             Console.SetCursorPosition(2, 22);
-            // do a loop
 
             Console.Write("Please Enter Column: ");
             var column = Console.ReadLine();
@@ -47,25 +56,23 @@ namespace TicTacToeSubmissionConole
             {
                 //Add move
                 AddRecord(row,column,player);
-
                 _boardRenderer.AddMove(int.Parse(row), int.Parse(column),player, true);
             }else
             {
                 while (CheckSpace(int.Parse(row),int.Parse(column)))
                 {
+                    //Add row:
                     Console.Write("Please Enter an empty Row: ");
                     row = Console.ReadLine();
 
+                    //Add column:
                     Console.Write("Please Enter an empty Column: ");
                     column = Console.ReadLine();
                 }
                 AddRecord(row, column, player);
-
                 _boardRenderer.AddMove(int.Parse(row), int.Parse(column), player, true);
-            }
-            
+            }   
         }
-
         private bool CheckSpace(int row, int col)
         {
             if (movesTrack[row,col] == "-")
@@ -74,13 +81,27 @@ namespace TicTacToeSubmissionConole
             }else
             {
                 return true;
-            }
-            
+            }  
         }
-
         private void AddRecord(string row, string col,PlayerEnum player)
         {
             movesTrack[int.Parse(row), int.Parse(col)] = player.ToString();
+        }
+
+        private bool CheckWin(PlayerEnum player)
+        {
+            string x,y,z;  
+
+            if ()
+            {
+                
+            }
+
+            if (true)
+            {
+
+            }
+            return true;
         }
     }
 }
