@@ -19,11 +19,12 @@ namespace TicTacToeSubmissionConole
         }
         public void Run()
         {
-            while (nrMoves != 0 || CheckWin(PlayerEnum.O) || CheckWin(PlayerEnum.X))
+            while (nrMoves != 1 || CheckWin(PlayerEnum.O) || CheckWin(PlayerEnum.X))
             {
                 Play(PlayerEnum.X);
                 Play(PlayerEnum.O);
-
+                CheckWin(PlayerEnum.X);
+                CheckWin(PlayerEnum.O);
                 nrMoves--;
             }
             if (nrMoves == 0) {
@@ -42,7 +43,7 @@ namespace TicTacToeSubmissionConole
         {
             Console.SetCursorPosition(2, 19);
 
-            Console.Write("Player X");
+            Console.Write($"Player {player.ToString()}");
 
             Console.SetCursorPosition(2, 20);
 
@@ -97,7 +98,7 @@ namespace TicTacToeSubmissionConole
             x = movesTrack[0, 0];
             y = movesTrack[0, 1];
             z = movesTrack[0, 2];
-            if (x == player.ToString() && x == y && y == z)
+            if (x == player.ToString() && x == y && y == z )
             {
                 return true;  
             }
