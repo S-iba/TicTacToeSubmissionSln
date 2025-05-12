@@ -45,26 +45,23 @@ namespace TicTacToeSubmissionConole
 
             if (!CheckSpace(int.Parse(row),int.Parse(column)))
             {
-            // THIS JUST DRAWS THE BOARD (NO TIC TAC TOE LOGIC)
-
-
-            //Add move
-
+                //Add move
+                AddRecord(row,column,player);
 
                 _boardRenderer.AddMove(int.Parse(row), int.Parse(column),player, true);
             }else
             {
                 while (CheckSpace(int.Parse(row),int.Parse(column)))
                 {
-                    Console.Write("Please Enter Row: ");
+                    Console.Write("Please Enter an empty Row: ");
                     row = Console.ReadLine();
 
-                    Console.SetCursorPosition(2, 22);
-                    // do a loop
-
-                    Console.Write("Please Enter Column: ");
+                    Console.Write("Please Enter an empty Column: ");
                     column = Console.ReadLine();
                 }
+                AddRecord(row, column, player);
+
+                _boardRenderer.AddMove(int.Parse(row), int.Parse(column), player, true);
             }
             
         }
@@ -83,7 +80,7 @@ namespace TicTacToeSubmissionConole
 
         private void AddRecord(string row, string col,PlayerEnum player)
         {
-            movesTrack[int.Parse(row), int.Parse(col)] = player;
+            movesTrack[int.Parse(row), int.Parse(col)] = player.ToString();
         }
     }
 }
