@@ -19,10 +19,12 @@ namespace TicTacToeSubmissionConole
         }
         public void Run()
         {
-            while (nrMoves != 0 || )
+            while (nrMoves != 0 || CheckWin(PlayerEnum.O) || CheckWin(PlayerEnum.X))
             {
                 Play(PlayerEnum.X);
                 Play(PlayerEnum.O);
+
+                nrMoves--;
             }
             if (nrMoves == 0) {
                 Console.WriteLine("The game ends in a draw!!");
@@ -90,18 +92,79 @@ namespace TicTacToeSubmissionConole
 
         private bool CheckWin(PlayerEnum player)
         {
-            string x,y,z;  
-
-            if ()
+            string x,y,z;
+            //Horizontal - First row
+            x = movesTrack[0, 0];
+            y = movesTrack[0, 1];
+            z = movesTrack[0, 2];
+            if (x == player.ToString() && x == y && y == z)
             {
-                
+                return true;  
             }
 
-            if (true)
+            //Diagonal Left-To_Right
+            x = movesTrack[0, 0];
+            y = movesTrack[1, 1];
+            z = movesTrack[2, 2];
+            if (x == player.ToString() && x == y && y == z)
             {
-
+                return true;
             }
-            return true;
+
+            //Diagonal Right-To-Left
+            x = movesTrack[0, 2];
+            y = movesTrack[1, 1];
+            z = movesTrack[2, 0];
+            if (x == player.ToString() && x == y && y == z)
+            {
+                return true;
+            }
+
+            //Horizontal - Second row
+            x = movesTrack[1, 0];
+            y = movesTrack[1, 1];
+            z = movesTrack[1, 2];
+            if (x == player.ToString() && x == y && y == z)
+            {
+                return true;
+            }
+
+            //Horizontal - Third row
+            x = movesTrack[2, 0];
+            y = movesTrack[2, 1];
+            z = movesTrack[2, 2];
+            if (x == player.ToString() && x == y && y == z)
+            {
+                return true;
+            }
+
+            //Vertical - First Column
+            x = movesTrack[0, 0];
+            y = movesTrack[1, 0];
+            z = movesTrack[2, 0];
+            if (x == player.ToString() && x == y && y == z)
+            {
+                return true;
+            }
+
+            //Vertical - Second Column
+            x = movesTrack[0, 1];
+            y = movesTrack[1, 1];
+            z = movesTrack[2, 1];
+            if (x == player.ToString() && x == y && y == z)
+            {
+                return true;
+            }
+
+            //Vertical - Third Column
+            x = movesTrack[0, 2];
+            y = movesTrack[1, 2];
+            z = movesTrack[2, 2];
+            if (x == player.ToString() && x == y && y == z)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
