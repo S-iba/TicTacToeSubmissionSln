@@ -8,6 +8,8 @@ namespace TicTacToeSubmissionConole
 {
     public class TicTacToe
     {
+        private int nrMoves = 9;
+        char[,] movesTrack = { { '-', '-', '-' }, { '-', '-', '-' }, { '-', '-', '-' } };
         private TicTacToeConsoleRenderer _boardRenderer;
 
         public TicTacToe()
@@ -19,7 +21,10 @@ namespace TicTacToeSubmissionConole
 
         public void Run()
         {
-
+            
+        }
+        private void Play(PlayerEnum player)
+        {
             // FOR ILLUSTRATION CHANGE TO YOUR OWN LOGIC TO DO TIC TAC TOE
 
             Console.SetCursorPosition(2, 19);
@@ -39,8 +44,7 @@ namespace TicTacToeSubmissionConole
 
 
             // THIS JUST DRAWS THE BOARD (NO TIC TAC TOE LOGIC)
-            _boardRenderer.AddMove(int.Parse(row), int.Parse(column), PlayerEnum.X, true);            
-
+            _boardRenderer.AddMove(int.Parse(row), int.Parse(column),player, true);
         }
 
     }
