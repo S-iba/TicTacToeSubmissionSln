@@ -47,6 +47,10 @@ namespace TicTacToeSubmissionConole
             {
             // THIS JUST DRAWS THE BOARD (NO TIC TAC TOE LOGIC)
 
+
+            //Add move
+
+
                 _boardRenderer.AddMove(int.Parse(row), int.Parse(column),player, true);
             }else
             {
