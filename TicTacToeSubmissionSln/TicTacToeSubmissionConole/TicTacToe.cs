@@ -34,6 +34,8 @@ namespace TicTacToeSubmissionConole
                 }
                 nrMoves -= 2 ;
             }
+
+            //Chek for Draw, Win, or Loss...
             if (nrMoves == 1)
             {
                 Console.SetCursorPosition(2, 25);
@@ -69,14 +71,14 @@ namespace TicTacToeSubmissionConole
             Console.Write("Please Enter Column: ");
             var column = Console.ReadLine();
 
-            if (!CheckSpace(int.Parse(row),int.Parse(column)))
+            if (CheckSpace(int.Parse(row),int.Parse(column)))
             {
                 //Add move
                 AddRecord(row,column,player);
                 _boardRenderer.AddMove(int.Parse(row), int.Parse(column),player, true);
             }else
             {
-                while (CheckSpace(int.Parse(row),int.Parse(column)))
+                while (!CheckSpace(int.Parse(row),int.Parse(column)))
                 {
                     //Add row:
                     Console.SetCursorPosition(2, 23);
@@ -96,10 +98,10 @@ namespace TicTacToeSubmissionConole
         {
             if (movesTrack[row,col] == "-")
             {
-                return false;
+                return true;
             }else
             {
-                return true;
+                return false;
             }  
         }
         private void AddRecord(string row, string col,PlayerEnum player)
